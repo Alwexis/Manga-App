@@ -1,0 +1,224 @@
+<ion-content>
+  <main class="ion-padding">
+    <section id="user-info-container">
+      <input (change)="imageChange($event)" type="file" style="display: none;" id="changePfpInput">
+      <img (click)="attemptChangePfp()" src="{{user.image}}" class="user-image" *ngIf="user.image else doesntHavePfp">
+      <ng-template #doesntHavePfp>
+        <img (click)="attemptChangePfp()" src="assets/images/nopfp.png" class="user-image">
+      </ng-template>
+      <div class="user-info">
+        <span class="alias">{{user.alias}}</span>
+        <span class="username">@{{user.username}}</span>
+        <ion-button fill="clear">
+          Edit Info
+          <ion-icon slot="end" name="create-outline"></ion-icon>
+        </ion-button>
+      </div>
+    </section>
+    <section id="become-pro-creator">
+      <span class="title">
+        Hey you!
+        <ion-icon src="assets/icons/puppycat-2.svg"></ion-icon>
+      </span>
+      <p class="subtitle">¿Do you want to become an <span class="highlight">Uploader</span>, <span
+          class="highlight">Artist</span> or <span class="highlight">Supporter</span>? Check below!</p>
+      <swiper [autoplay]="true" [pagination]="true" class="cards-container"
+      (swiper)="setSwiperInstance($event)" (slideChange)="onSlideChange()">
+        <ng-template swiperSlide>
+          <div class="card supporter">
+            <div class="card-header">
+              <span class="card-title">Supporter</span>
+              <span class="card-subtitle">
+                <span class="badge supporter-badge">
+                  Supporter
+                  <ion-icon name="heart"></ion-icon>
+                </span>
+              </span>
+            </div>
+            <div class="card-content">
+              <p>
+                Do you want to support the creators of this app? Check it out the perks you get by becoming a supporter clicking below!
+              </p>
+              <div class="card-buttons">
+                <ion-button (click)="playCardAnimation('supporter', true)" fill="clear">
+                  Read more
+                </ion-button>
+              </div>
+            </div>
+          </div>
+          <div class="card card-back supporter">
+            <div class="card-header">
+              <span class="card-title">Perks</span>
+              <!--
+              <span class="card-subtitle"></span>
+              -->
+            </div>
+            <div class="card-content">
+              <p class="perks">
+                <span class="perk">
+                  <span class="perk-bullet"></span>
+                  A beatiful badge in your profile <ion-icon style="color: var(--mangapp-supporter-color);" name="heart"></ion-icon>
+                </span>
+                <span class="perk">
+                  <span class="perk-bullet"></span>
+                  Highlighted comments in Mangas
+                </span>
+                <span class="perk">
+                  <span class="perk-bullet"></span>
+                  Animated Icons & Profile Picture
+                </span>
+              </p>
+              <div class="card-buttons">
+                <ion-button (click)="playCardAnimation('supporter', false)" color="danger" fill="clear">
+                  Back
+                </ion-button>
+                <ion-button [disabled]="user.isPro" fill="clear">
+                  Like it!
+                  <ion-icon slot="end" name="heart"></ion-icon>
+                </ion-button>
+              </div>
+            </div>
+          </div>
+        </ng-template>
+        <ng-template swiperSlide>
+          <div class="card uploader">
+            <div class="card-header">
+              <span class="card-title">Uploader</span>
+              <span class="card-subtitle">
+                <span class="badge uploader-badge">
+                  Uploader
+                  <ion-icon name="disc"></ion-icon>
+                </span>
+              </span>
+            </div>
+            <div class="card-content">
+              <p>
+                Do you want to upload your scans and translations and let anybody reads it? That's the
+                rank you are looking for!
+              </p>
+              <span class="disclaimer">You need to apply for this rank</span>
+              <div class="card-buttons">
+                <ion-button (click)="playCardAnimation('uploader', true)" fill="clear">
+                  Read more
+                </ion-button>
+              </div>
+            </div>
+          </div>
+          <div class="card card-back uploader">
+            <div class="card-header">
+              <span class="card-title">Perks</span>
+              <!--
+              <span class="card-subtitle"></span>
+              -->
+            </div>
+            <div class="card-content">
+              <p class="perks">
+                <span class="perk">
+                  <span class="perk-bullet"></span>
+                  A beatiful badge in your profile
+                </span>
+                <span class="perk">
+                  <span class="perk-bullet"></span>
+                  Upload Mangas & Chapters
+                </span>
+              </p>
+              <div class="card-buttons">
+                <ion-button (click)="playCardAnimation('supporter', false)" color="danger" fill="clear">
+                  Back
+                </ion-button>
+                <ion-button [disabled]="user.isUploader" fill="clear">
+                  Apply
+                </ion-button>
+              </div>
+            </div>
+          </div>
+        </ng-template>
+        <ng-template swiperSlide>
+          <div class="card artist">
+            <div class="card-header">
+              <span class="card-title">Artist</span>
+              <span class="card-subtitle">
+                <span class="badge artist-badge">
+                  Artist
+                  <ion-icon name="color-palette"></ion-icon>
+                </span>
+              </span>
+            </div>
+            <div class="card-content">
+              <p>
+                Are you a Manga Artist and want to show your work to the world? Check out this!
+              </p>
+              <span class="disclaimer">You need to apply for this rank</span>
+              <div class="card-buttons">
+                <ion-button (click)="playCardAnimation('artist', true)" fill="clear">
+                  Read more
+                </ion-button>
+              </div>
+            </div>
+          </div>
+          <div class="card card-back artist">
+            <div class="card-header">
+              <span class="card-title">Artist</span>
+              <!--
+              <span class="card-subtitle"></span>
+              -->
+            </div>
+            <div class="card-content">
+              <p class="perks">
+                <span class="perk">
+                  <span class="perk-bullet"></span>
+                  A beatiful badge in your profile
+                </span>
+                <span class="perk">
+                  <span class="perk-bullet"></span>
+                  Upload your own Manga
+                </span>
+                <span class="perk">
+                  <span class="perk-bullet"></span>
+                  Participate in contests
+                </span>
+                <!--
+                <span class="perk">
+                  <span class="perk-bullet"></span>
+                  Your creations will be in a special section
+                </span>
+                -->
+              </p>
+              <div class="card-buttons">
+                <ion-button (click)="playCardAnimation('supporter', false)" color="danger" fill="clear">
+                  Back
+                </ion-button>
+                <ion-button [disabled]="user.isCreator" fill="clear">
+                  Apply
+                </ion-button>
+              </div>
+            </div>
+          </div>
+        </ng-template>
+      </swiper>
+    </section>
+    <section id="group-list">
+      <span class="title">Your groups</span>
+      <div class="groups-container">
+        <div class="group ion-activatable" *ngFor="let item of [].constructor(9)">
+          <img src="assets/images/PuppyCat.png">
+          <div class="group-name">
+            <span>Michifús</span>
+          </div>
+          <ion-ripple-effect></ion-ripple-effect>
+        </div>
+        <div class="group ion-activatable create-group">
+          <ion-icon class="create-group-icon" name="add-circle-outline"></ion-icon>
+          <span>Create Group</span>
+          <ion-ripple-effect></ion-ripple-effect>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Image Viewer -->
+  <section (click)="clickedViewerOff($event)" id="image-viewer" *ngIf="seeingImage">
+    <span>Click anything but the image to leave the viewer.</span>
+    <img id="image-viewer-img" src="{{user.image}}">
+  </section>
+</ion-content>

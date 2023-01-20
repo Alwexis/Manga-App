@@ -1,0 +1,53 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-segment (ionChange)="onSegmentChange($event)" [swipeGesture]="true" value="all">
+      <ion-segment-button value="all">
+        All
+      </ion-segment-button>
+      <ion-segment-button value="by-genres">
+        By Genres
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content detectTouch="true" detectTouchY="false" detectTouchX="true">
+  <swiper (swiper)="setSwiperInstance($event)" (slideChange)="onSlideChange($event)">
+    <ng-template swiperSlide>
+      <section id="all-mangas" class="segment-section">
+        <ion-searchbar placeholder="Search by name or author"></ion-searchbar>
+        <div class="manga-container" *ngIf="loading else Loaded;">
+          <div class="manga" *ngFor="let item of [].constructor(20)">
+            <ion-thumbnail class="manga-img">
+              <ion-skeleton-text [animated]="true"></ion-skeleton-text>
+            </ion-thumbnail>
+            <span class="manga-title">
+              <ion-skeleton-text [animated]="true" style="width: 12vh;"></ion-skeleton-text>
+            </span>
+            <span class="manga-author">
+              <ion-skeleton-text [animated]="true" style="width: 12vh;"></ion-skeleton-text>
+            </span>
+          </div>
+        </div>
+        <ng-template #Loaded>
+          <div class="manga-container">
+            <div class="manga ion-activatable" *ngFor="let manga of mangas">
+              <img class="manga-img" src="{{manga.image}}">
+              <span class="manga-title">
+                {{manga.title}}
+              </span>
+              <span class="manga-author">
+                {{manga.author}}
+              </span>
+              <ion-ripple-effect></ion-ripple-effect>
+            </div>
+          </div>
+        </ng-template>
+      </section>
+    </ng-template>
+    <ng-template swiperSlide>
+      <section id="by-genres" class="segment-section">
+      </section>
+    </ng-template>
+  </swiper>
+</ion-content>

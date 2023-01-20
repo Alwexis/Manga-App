@@ -1,0 +1,31 @@
+<ion-content>
+  <main>
+    <section id="brand">
+      <img src="./../../../assets/images/PuppyCat.png">
+      <span>MangApp</span>
+    </section>
+    <section id="login">
+      <span class="login-title">Login</span>
+      <form class="login-form" #loginForm="ngForm" (ngSubmit)="login()">
+        <ion-item class="form-content">
+          <ion-label position="floating">Email</ion-label>
+          <ion-input [disabled]="!hasConnection" placeholder="email@mangapp.com"  [required]="true" [(ngModel)]="email" type="email"
+          name="email" pattern="^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})$"></ion-input>
+          <ion-note slot="helper">Enter a valid email</ion-note>
+          <ion-note *ngIf="email.length > 0" slot="error">Invalid email</ion-note>
+        </ion-item>
+        <ion-item class="form-content">
+          <ion-label position="floating">Password</ion-label>
+          <ion-input [disabled]="!hasConnection" [required]="true" [(ngModel)]="password" type="password" name="password"></ion-input>
+          <ion-note slot="helper">Enter a valid password</ion-note>
+          <ion-note *ngIf="password.length > 0" slot="error">Invalid password</ion-note>
+        </ion-item>
+        <ion-button class="form-content" type="submit" expand="block" [disabled]="!loginForm.valid">Login</ion-button>
+      </form>
+      <div class="signup">
+        <span>Don't have an account?</span>
+        <a routerLink="/register">Sign up</a>
+      </div>
+    </section>
+  </main>
+</ion-content>

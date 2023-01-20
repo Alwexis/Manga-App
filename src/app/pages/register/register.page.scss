@@ -1,0 +1,49 @@
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 90%;
+    & #brand {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 2vh;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        & * {
+            margin: 0vh 1vh;
+        }
+        & img {
+            width: 8vh;
+            filter: drop-shadow(1px 1px 0px var(--ion-color-light-contrast))
+                    drop-shadow(-1px -1px 0px var(--ion-color-light-contrast))
+                    drop-shadow(1px -1px 0px var(--ion-color-light-contrast))
+                    drop-shadow(-1px 1px 0px var(--ion-color-light-contrast));
+        }
+        & span {
+            font-family: puppycat;
+            font-size: 3.8vh;
+            color: #dea3ac;
+            text-shadow: 2px 0 var(--ion-color-light-contrast), 
+                        -2px 0 var(--ion-color-light-contrast),
+                        0 2px var(--ion-color-light-contrast),
+                        0 -2px var(--ion-color-light-contrast),
+                        1px 1px var(--ion-color-light-contrast),
+                        -1px -1px var(--ion-color-light-contrast),
+                        1px -1px var(--ion-color-light-contrast),
+                        -1px 1px var(--ion-color-light-contrast);
+        }
+    }
+    & #register {
+        display: flex;
+        flex-direction: column;
+        & .register-form {
+            margin: 4vh 2vh;
+            & .form-content {
+                margin: 2vh 0vh;
+            }
+        }
+    }
+}

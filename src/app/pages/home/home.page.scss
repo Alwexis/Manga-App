@@ -1,0 +1,47 @@
+swiper {
+    height: 100%;
+    width: 100%;
+}
+
+ion-searchbar {
+    margin: 6px 0px;
+}
+
+.segment-section {
+    height: 100%;
+    overflow: auto;
+    & .manga-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        & .manga {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: center;
+            margin: 1vh 0.5vh;
+            width: 12vh;
+            overflow: hidden;
+            position: relative;
+            & .manga-img {
+                width: 12vh;
+                max-height: 80%;
+                min-height: 80%;
+            }
+            & span {
+                overflow: hidden;
+                max-width: 12vh;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+                text-align: left;
+            }
+            & .manga-title {
+                font-size: 2vh;
+            }
+            & .manga-author {
+                font-size: 1.8vh;
+                color: var(--ion-color-medium);
+            }
+        }
+    }
+}

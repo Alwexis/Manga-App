@@ -1,0 +1,7 @@
+{
+  "name": "MangApp",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

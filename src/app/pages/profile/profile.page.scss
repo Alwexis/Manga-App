@@ -1,0 +1,283 @@
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+}
+
+#user-info-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin: 2vh;
+    border-bottom: 1px groove var(--ion-color-light-contrast);
+    padding-bottom: 2vh;
+    & .user-image {
+        min-height: 16vh;
+        max-height: 16vh;
+        min-width: 16vh;
+        max-width: 16vh;
+        border-radius: 100%;
+        border: 1.5px solid var(--ion-color-light-contrast);
+    }
+    & .user-info {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        margin: 2vh 2vh 2vh 4vh;
+        & .alias {
+            font-size: 3.5vh;
+            font-weight: 800;
+            color: var(--ion-color-light-contrast);
+        }
+        & .username {
+            font-size: 2.2vh;
+            font-weight: 100;
+            font-family: monospace;
+            margin-top: 0.25vh;
+            color: var(--ion-color-medium);
+        }
+        & ion-button {
+            --padding-bottom: 0px;
+            --padding-end: 0px;
+            --padding-start: 0px;
+            --padding-top: 0px;
+            margin: 0;
+        }
+    }
+}
+
+#become-pro-creator {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    & .title {
+        font-size: 3vh;
+        font-weight: 600;
+        font-family: 'Roboto';
+        display: flex;
+        align-items: center;
+        & ion-icon {
+            width: 4vh;
+            height: 4vh;
+            margin: 0vh 0vh 0vh 1vh;
+            filter: drop-shadow(0.2px 0.2px 1px var(--ion-color-light-contrast));
+        }
+    }
+    & .subtitle {
+        margin: 1vh;
+        text-align: center;
+        font-size: 1.8vh;
+        & .highlight:nth-child(1) {
+            color: var(--ion-color-primary);
+        }
+        & .highlight:nth-child(2) {
+            color: var(--ion-color-tertiary);
+        }
+        & .highlight:nth-child(3) {
+            color: var(--mangapp-supporter-color);
+        }
+    }
+    & .cards-container {
+        height: 100%;
+        width: 100%;
+        padding: 0vh 0vh 2.5vh 0vh;
+        & .card {
+            background: var(--ion-card-background, var(--ion-item-background, var(--ion-background-color, #fff)));
+            margin: 10px;
+            border-radius: 4px;
+            max-width: 80%;
+            min-width: 80%;
+            box-shadow: rgb(0 0 0 / 20%) 0px 3px 1px -2px, rgb(0 0 0 / 14%) 0px 2px 2px 0px, rgb(0 0 0 / 12%) 0px 1px 5px 0px;
+            & .card-header {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                padding: 1vh 1vh 0vh 1vh;
+                & .card-title {
+                    font-size: 2.4vh;
+                    font-weight: 600;
+                    min-width: 100%;
+                    max-width: 100%;
+                }
+                & .card-subtitle {
+                    display: flex;
+                    justify-content: center;
+                    margin: 1.25vh;
+                    min-width: 100%;
+                    max-width: 100%;
+                }
+            }
+            & .card-content {
+                padding: 0vh 1vh 1vh 1vh;
+                min-width: 100%;
+                max-width: 100%;
+                & p {
+                    margin: 0;
+                    font-size: 1.8vh;
+                }
+                & .perks {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: flex-start;
+                    text-align: start;
+                    padding: 0vh 1vh;
+                    margin-top: 1vh;
+                    & .perk {
+                        display: flex;
+                        flex-direction: row;
+                        align-items: center;
+                        &:not(:first-child):not(:last-child) {
+                            margin: 0.75vh 0vh;
+                        }
+                        &:first-child {
+                            margin-bottom: 0.75vh;
+                        }
+                        &:last-child {
+                            margin-top: 0.75vh;
+                        }
+                        .perk-bullet {
+                            background-color: var(--ion-color-dark);
+                            width: 0.5vh;
+                            height: 0.5vh;
+                            border-radius: 100%;
+                            margin-right: 1vh;
+                        }
+                    }
+                }
+                & .card-buttons {
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    justify-content: space-evenly;
+                    margin-top: 1vh;
+                }
+                & .disclaimer {
+                    font-size: 1.5vh;
+                    color: var(--ion-color-medium);
+                }
+            }
+        }
+        & .card-back {
+            display: none;
+        }
+    }
+}
+
+//* Badges
+.badge {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5vh;
+    font-weight: 600;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    color: #f2f2f2;
+    border-radius: 2vh;
+    padding: 0.5vh 1vh;
+    & ion-icon {
+        margin-left: 0.5vh;
+    }
+    &.supporter-badge {
+        background-color: var(--mangapp-supporter-color);
+    }
+    &.uploader-badge {
+        background-color: var(--ion-color-primary);
+    }
+    &.artist-badge {
+        background-color: var(--ion-color-tertiary);
+    }
+}
+
+#group-list {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    border-top: 1px groove var(--ion-color-light-contrast);
+    padding-top: 2vh;
+    & .groups-container {
+        display: flex;
+        flex-direction: row;
+        overflow-x: auto;
+        & .group {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            max-height: 18vh;
+            min-height: 18vh;
+            min-width: 14vh;
+            max-width: 14vh;
+            border: 1px solid var(--ion-color-light-contrast);
+            overflow: hidden;
+            margin: 2vh 0.75vh 0vh 0.75vh;
+            &:first-child {
+                margin: 2vh 0.75vh 0vh 0vh;
+            }
+            &:last-child {
+                margin: 2vh 0vh 0vh 0.75vh;
+            }
+            //&:not(:first-child):not(:last-child)
+            & img {
+                width: 80%;
+                filter: brightness(0.8);
+            }
+            & .group-name {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                align-content: center;
+                width: 100%;
+                height: 30%;
+                position: absolute;
+                bottom: 3px;
+                background: rgba(0, 0, 0, 0.6);
+                padding: 2vh 0vh;
+                & span {
+                    font-size: 2vh;
+                    overflow: hidden;
+                    max-width: 80%;
+                    white-space: nowrap;
+                    text-overflow: ellipsis;
+                    text-align: center;
+                    //padding: 0vh 1vh;
+                }
+            }
+        }
+        & .create-group {
+            & .create-group-icon {
+                width: 50%;
+                height: 50%;
+            }
+            & span {
+                font-size: 1.8vh;
+            }
+        }
+    }
+}
+
+#image-viewer {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    z-index: 100;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    & span {
+        margin-bottom: 2vh;
+    }
+    & img {
+        width: 95%;
+        opacity: 1;
+    }
+}

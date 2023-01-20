@@ -1,0 +1,6 @@
+.inactive-tab {
+    & ion-label {
+        opacity: 0;
+        display: none;
+    }
+}

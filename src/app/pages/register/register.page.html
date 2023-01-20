@@ -1,0 +1,49 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Register</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <main>
+    <section id="brand">
+      <img src="./../../../assets/images/PuppyCat.png">
+      <span>MangApp</span>
+    </section>
+    <section id="register">
+      <form class="register-form" #registerForm="ngForm" (ngSubmit)="register()">
+        <ion-item class="form-content">
+          <ion-label position="floating">Username<ion-text color="danger">*</ion-text></ion-label>
+          <ion-input required [(ngModel)]="credentials.username" name="username" type="text"
+          pattern="[a-zA-Z0-9_]{4,}"></ion-input>
+          <ion-note *ngIf="credentials.username.length > 0" slot="error">Invalid name</ion-note>
+          <ion-note slot="helper">Enter a valid username of atleast 4 characters</ion-note>
+        </ion-item>
+        <ion-item class="form-content">
+          <ion-label position="floating">Alias<ion-text color="danger">*</ion-text></ion-label>
+          <ion-input required [(ngModel)]="credentials.alias" name="alias" type="text"
+          pattern="[A-Za-zÀ-ÖØ-öø-ÿ0-9_ ]{3,}"></ion-input>
+          <ion-note slot="helper">Enter a valid 3 (or more) length alias</ion-note>
+          <ion-note *ngIf="credentials.alias.length > 0" slot="error">Invalid name</ion-note>
+        </ion-item>
+        <ion-item class="form-content">
+          <ion-label position="floating">Email<ion-text color="danger">*</ion-text></ion-label>
+          <ion-input placeholder="email@mangapp.com" [required]="true" [(ngModel)]="credentials.email" type="email"
+          name="email" pattern="^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$"></ion-input>
+          <ion-note slot="helper">Enter a valid email</ion-note>
+          <ion-note *ngIf="credentials.email.length > 0" slot="error">Invalid email</ion-note>
+        </ion-item>
+        <ion-item class="form-content">
+          <ion-label position="floating">Password <ion-text color="danger">*</ion-text></ion-label>
+          <ion-input [(ngModel)]="credentials.password" required name="password" type="password"></ion-input>
+        </ion-item>
+        <ion-button class="form-content" type="submit" expand="block" color="primary" [disabled]="registerForm.invalid">
+          Register
+        </ion-button>
+      </form>
+    </section>
+  </main>
+</ion-content>
