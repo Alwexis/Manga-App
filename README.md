@@ -4,3 +4,5 @@ A Manga (comic?) App that allows people to upload their own creations (or transl
 Stack: Ionic, Angular, (Express in case of the server) & MongoDB.
 
 In order to poblate the database, I've scrapped data from this [manga page](manganato.com). If you wanna see the script that I used to do it, check out the [repository](https://github.com/Alwexis/Web-Scraping/blob/main/Manga%20Nato%20Scraper.js)
+
+[Here's a video that shows how does the app's current features work](https://youtu.be/zZTkmSt6EqQ)
