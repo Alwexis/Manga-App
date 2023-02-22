@@ -4,7 +4,7 @@
 <div class="content">
     <p>
         MangApp is a Mobile App project which main purpose is to allow you to upload and read manga online. The App, also allows you to create your own Manga/Comic and then share it with the community.
-        Its being developed using <a href="ionicframework.com/" target="_blank">Ionic</a> & Angular in the App Side, and Express.js, Node.js & <a href="https://www.mongodb.com" target="_blank">MongoDB</a> in the Server Side.
+        Its being developed using <a href="https://ionicframework.com" target="_blank">Ionic</a> & Angular in the App Side, and Express.js, Node.js & <a href="https://www.mongodb.com" target="_blank">MongoDB</a> in the Server Side.
 
         Its currently under development, but you can check the source code and a litle demo video below.
     </p>
